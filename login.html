@@ -1,0 +1,146 @@
+{% load static %}
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary text-center">
+        <div class="container-fluid">
+            <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'dash:Base' %}">Home</a>
+                    </li>
+                </ul>
+                
+            <div class="text-center login my-5 my-md-0 ">
+                <a class=" py-2 px-5 font-weight-bold ms-3"  href="{% url 'dash:signup' %}">Rigester</a>
+              </div>
+            </div>
+           
+            <div class="col-md-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-white px-3" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-white px-3" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-white px-3" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-white px-3" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-white pl-3" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+    </nav>
+    <!-- Navbar End -->
+
+
+    <div class="container  my-5 py-5 ">
+        <div class="row justify-content-center">
+        <div class="col-md-6 col-10 bg-light" style="width: 18rem; height: 500px;">
+         <h1 class="py-3 mt-5 text-center">Login</h1>
+
+            <form method="post" action="." class="px-4">
+
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label font-weight-bold text-left">Username</label>
+                             {{ form.username }}
+                    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label font-weight-bold">Password</label>
+                          {{ form.password }}
+                </div>
+
+                <!-- <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div> -->
+
+                <p><a href="{% url 'dash:password_reset' %}">Forgot your password?</a></p>
+
+
+                {% if form.errors or form.non_field_errors%}
+    
+            <div class="mb-3 p-6 bg-red-100 rounded-xl">
+                {% for field in form %}
+                {{field.errors}}
+                {% endfor %}
+                {{ form.non_field_errors}}
+            </div>
+    
+            {% endif %}
+
+                <div class="text-center">
+                <button type="submit" class="btn btn-primary col-8 py-2 font-weight-bold text-center">Login</button>
+               </div>
+            </form>
+
+
+        </div>
+    </div>
+    </div>
+
+    
+
+  
+
+       
+    <!-- Footer Start -->
+   
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+
+</body>
+
+</html>
+

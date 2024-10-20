@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'images/logo.png'%}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary text-center">
+        <div class="container-fluid">
+            <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'dash:Base' %}">Home</a>
+                    </li>
+                </ul>
+                
+            <div class="text-center login my-5 my-md-0 ">
+                <a class=" py-2 px-5 font-weight-bold ms-3"  href="{% url 'dash:login' %}">Login</a>
+              </div>
+            </div>
+           
+            <div class="col-md-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-white px-3" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-white px-3" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-white px-3" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-white px-3" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-white pl-3" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+    </nav>
+    <!-- Navbar End -->
+
+    <div class="w-1/2 my-6 mx-auto p-6 bg-gray-100 rounded-xl">
+        <form class="text-center" method="post" action=".">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Sign Up</legend>
+                <br />
+                <h3>Personal Information</h3>
+                <div class="form-group mb-3">
+                    <label class="col-5 control-label" for="username">Username</label>
+                    <div class="col-12">
+                        {{ form.username }}
+                    </div>
+                </div>
+    
+                <div class="form-group mb-3">
+                    <label class="col-5 control-label" for="email">Email</label>
+                    <div class="col-12">
+                        {{ form.email}}
+                    </div>
+                </div>
+    
+                <div class="form-group mb-3">
+                    <label class="col-5 control-label" for="password1">Password</label>
+                    <div class="col-12">
+                        {{ form.password1}}
+                    </div>
+                </div>
+    
+                <div class="form-group mb-3">
+                    <label class="col-5 control-label" for="password2">Repeat Password</label>
+                    <div class="col-12">
+                        {{ form.password2 }}
+                    </div>
+                </div>
+    
+                {% if form.errors or form.non_field_errors %}
+                <div class="mb-3 p-6 bg-red-100 rounded-xl">
+                    {% for field in form %}
+                    {{ field.errors }}
+                    {% endfor %}
+                    {{ form.non_field_errors }}
+                </div>
+                {% endif %}
+                
+            </fieldset>
+    
+            <button class="btn btn-primary nextBtn btn-lg pull-right" type="submit">Submit</button>
+        </form>
+    </div>
+    
+
+    <!-- Footer Start -->
+
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+
+</body>
+
+</html>
